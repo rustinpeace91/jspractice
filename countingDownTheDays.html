@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<head>
+		<script>
+
+		function determineDays() {
+
+			var userDate = prompt("enter a date (must be formated like so: June 4, 2016)");
+
+
+			var diff = new Date(userDate).getTime() - new Date().getTime();
+			elec = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+			document.write(elec + " days until " + userDate);
+
+		}
+
+
+		function determineDate() {
+			var userDays = prompt("how many days?");
+			userDays = parseInt(userDays);
+
+			var e = new Date();
+			userSum = e.getDate() + userDays;
+			e.setDate(userSum);
+
+			var m = e.getMonth(); 
+			m++; //months are stored as an array from 0-11, must add 1 to get correct month
+			m = m.toString();
+			var d = e.getDate();
+			var y = e.getFullYear();
+			document.write(userDays + " days from now is " + m + "/" + d + "/" + y);
+
+		}
+
+
+
+		</script>
+	</head>
+
+	<body>
+	<button onclick = "determineDays();">days until a date</button>
+	<button onclick = "determineDate();">date after a certain amount of days</button>
+
+	</body>
+
+
+</html>
