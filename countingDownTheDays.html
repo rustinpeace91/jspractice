@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 	<head>
-		<script>
+
+	</head>
+
+	<body>
+	<button onclick = "determineDays();">days until a date</button>
+	<button onclick = "determineDate();">date after a certain amount of days</button>
+
+	<script>
 
 		function determineDays() {
 
@@ -16,30 +23,35 @@
 
 
 		function determineDate() {
+
 			var userDays = prompt("how many days?");
-			userDays = parseInt(userDays);
 
-			var e = new Date();
-			userSum = e.getDate() + userDays;
-			e.setDate(userSum);
+			if (isNaN(userDays) == true) {
+				document.write(userDays + " is not a number");
+			}
 
-			var m = e.getMonth(); 
-			m++; //months are stored as an array from 0-11, must add 1 to get correct month
-			m = m.toString();
-			var d = e.getDate();
-			var y = e.getFullYear();
-			document.write(userDays + " days from now is " + m + "/" + d + "/" + y);
+			else {
+				userDays = parseInt(userDays);
+
+
+				var e = new Date();
+				userSum = e.getDate() + userDays;
+				e.setDate(userSum);
+
+				var m = e.getMonth(); 
+				m++; //months are stored as an array from 0-11, must add 1 to get correct month
+				m = m.toString();
+				var d = e.getDate();
+				var y = e.getFullYear();
+				document.write(userDays + " days from now is " + m + "/" + d + "/" + y);
+			}
 
 		}
 
 
 
 		</script>
-	</head>
 
-	<body>
-	<button onclick = "determineDays();">days until a date</button>
-	<button onclick = "determineDate();">date after a certain amount of days</button>
 
 	</body>
 
